@@ -1,0 +1,10 @@
+name         'bison-powerdns'
+version      '0.0.1'
+source       'git://github.com/bison/puppet-powerdns.git'
+author       'Brad Ison'
+license      'Apache License Version 2.0'
+summary      'Puppet PowerDNS module'
+description  'This module manages PowerDNS configuration'
+project_page 'https://github.com/bison/puppet-powerdns'
+
+dependency 'puppetlabs/stdlib', '>= 0.1.6'

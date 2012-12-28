@@ -1,0 +1,307 @@
+#################################
+# allow-axfr-ips    If enabled, restrict zonetransfers to originate from these
+#                   IP addresses
+#
+# allow-axfr-ips=
+<% unless @allow_axfr_ips.empty? -%>
+allow-axfr-ips=<%= @allow_axfr_ips.join(',') %>
+<% end -%>
+
+#################################
+# allow-recursion       List of netmasks that are allowed to recurse
+#
+allow-recursion=<%= @allow_recursion.join(',') %>
+
+#################################
+# allow-recursion-override   Local data even about hosts that don't exist will
+#                            override the internet. (on/off)
+#
+allow-recursion-override=<%= @allow_recursion_override %>
+
+#################################
+# cache-ttl     Seconds to store packets in the PacketCache
+#
+cache-ttl=<%= @cache_ttl %>
+
+#################################
+# chroot        If set, chroot to this directory for more security
+#
+# chroot=/var/spool/powerdns
+<% if @chroot -%>
+chroot=<%= @chroot %>
+<% end -%>
+
+#################################
+# config-dir    Location of configuration directory (pdns.conf)
+#
+config-dir=<%= @config_dir %>
+
+#################################
+# config-name   Name of this virtual configuration - will rename the binary image
+#
+# config-name=
+<% if @config_name -%>
+config-name=<%= @config_name %>
+<% end -%>
+
+#################################
+# control-console       Debugging switch - don't use
+#
+# control-console=no
+
+#################################
+# daemon        Operate as a daemon
+#
+daemon=<%= @daemon %>
+
+#################################
+# default-soa-name      name to insert in the SOA record if none set in the backend
+#
+default-soa-name=<%= @default_soa_name %>
+
+#################################
+# disable-axfr  Disable zonetransfers but do allow TCP queries
+#
+disable-axfr=<%= @disable_axfr %>
+
+#################################
+# disable-tcp   Do not listen to TCP queries
+#
+disable-tcp=<%= @disable_tcp %>
+
+#################################
+# distributor-threads   Default number of Distributor (backend) threads to start
+#
+distributor-threads=<%= @distributor_threads %>
+
+#################################
+# guardian      Run within a guardian process
+#
+guardian=<%= @guardian %>
+
+#################################
+# launch        Which backends to launch and order to query them in
+#
+launch=<%= @launch.join(',') %>
+
+#################################
+# lazy-recursion        Only recurse if question cannot be answered locally
+#
+lazy-recursion=<%= @lazy_recursion %>
+
+#################################
+# local-address Local IP address to which we bind
+#
+local-address=<%= @local_address %>
+
+#################################
+# local-ipv6    Local IP address to which we bind
+#
+# local-ipv6=
+<% if @local_ipv6 -%>
+local-ipv6=<%= @local_ipv6 %>
+<% end -%>
+
+#################################
+# local-port    The port on which we listen
+#
+local-port=<%= @local_port %>
+
+#################################
+# log-dns-details       If PDNS should log failed update requests
+#
+log-dns-details=<%= @log_dns_details %>
+
+#################################
+# log-failed-updates    If PDNS should log failed update requests
+#
+log-failed-updates=<%= @log_failed_updates %>
+
+#################################
+# logfile       Logfile to use
+#
+# logfile=/var/log/pdns.log
+<% if @logfile -%>
+logfile=<%= @logfile %>
+<% end -%>
+
+#################################
+# logging-facility      Log under a specific facility
+#
+# logging-facility=
+<% if @logging_facility -%>
+logging_facility=<%= @logging_facility %>
+<% end -%>
+
+#################################
+# loglevel      Amount of logging. Higher is more. Do not set below 3
+#
+loglevel=<%= @log_level %>
+
+#################################
+# master        Act as a master
+#
+master=<%= @master %>
+
+#################################
+# max-queue-length      Maximum queuelength before considering situation lost
+#
+max-queue-length=<%= @max_queue_length %>
+
+#################################
+# max-tcp-connections   Maximum number of TCP connections
+#
+max-tcp-connections=<%= @max_tcp_connections %>
+
+#################################
+# module-dir    Default directory for modules
+#
+module-dir=<%= @module_dir %>
+
+#################################
+# negquery-cache-ttl    Seconds to store packets in the PacketCache
+#
+negquery-cache-ttl=<%= @negquery_cache_ttl %>
+
+#################################
+# out-of-zone-additional-processing     Do out of zone additional processing
+#
+out-of-zone-additional-processing=<%= @out_of_zone_additional_processing %>
+
+#################################
+# query-cache-ttl       Seconds to store packets in the PacketCache
+#
+query-cache-ttl=<%= @query_cache_ttl %>
+
+#################################
+# query-logging Hint backends that queries should be logged
+#
+query-logging=<%= @query_logging %>
+
+#################################
+# queue-limit   Maximum number of milliseconds to queue a query
+#
+queue-limit=<%= @queue_limit %>
+
+#################################
+# query-local-address   The IP address to use as a source address for sending
+#                       queries.
+# query-local-address=
+<% if @query_local_address -%>
+query_local_address=<%= @query_local_address %>
+<% end -%>
+
+#################################
+# receiver-threads      Number of receiver threads to launch
+#
+receiver-threads=<%= @receiver_threads %>
+
+#################################
+# recursive-cache-ttl   Seconds to store packets in the PacketCache
+#
+recursive-cache-ttl=<%= @recursive_cache_ttl %>
+
+#################################
+# recursor      If recursion is desired, IP address of a recursing nameserver
+#
+# recursor=
+<% if @recursor -%>
+recursor=<%= @recursor %>
+<% end -%>
+
+#################################
+# setgid        If set, change group id to this gid for more security
+#
+setgid=<%= @setgid %>
+
+#################################
+# setuid        If set, change user id to this uid for more security
+#
+setuid=<%= @setuid %>
+
+#################################
+# skip-cname    Do not perform CNAME indirection for each query
+#
+skip-cname=<%= @skip_cname %>
+
+#################################
+# slave Act as a slave
+#
+slave=<%= @slave %>
+
+#################################
+# slave-cycle-interval  Reschedule failed SOA serial checks once every .. seconds
+#
+slave-cycle-interval=<%= @slave_cycle_interval %>
+
+#################################
+# soa-minimum-ttl       Default SOA mininum ttl
+#
+soa-minimum-ttl=<%= @soa_minimum_ttl %>
+
+#################################
+# soa-refresh-default  Default SOA refresh
+#
+soa-refresh-default=<%= @soa_refresh_default %>
+
+#################################
+# soa-retry-default    Default SOA retry
+#
+soa-retry-default=<%= @soa_retry_default %>
+
+#################################
+# soa-expire-default   Default SOA expire
+#
+soa-expire-default=<%= @soa_expire_default %>
+
+#################################
+# soa-serial-offset     Make sure that no SOA serial is less than this number
+#
+soa-serial-offset=<%= @soa_serial_offset %>
+
+#################################
+# socket-dir    Where the controlsocket will live
+#
+socket-dir=<%= @socket_dir %>
+
+#################################
+# strict-rfc-axfrs      Perform strictly rfc compliant axfrs (very slow)
+#
+strict-rfc-axfrs=<%= @strict_rfc_axfrs %>
+
+#################################
+# use-logfile   Use a log file
+#
+use-logfile=<%= @use_logfile %>
+
+#################################
+# webserver     Start a webserver for monitoring
+#
+webserver=<%= @webserver %>
+
+#################################
+# webserver-address     IP Address of webserver to listen on
+#
+webserver-address=<%= @webserver_address %>
+
+#################################
+# webserver-password    Password required for accessing the webserver
+#
+webserver-password=<%= @webserver_password %>
+
+#################################
+# webserver-port        Port of webserver to listen on
+#
+webserver-port=<%= @webserver_port %>
+
+#################################
+# webserver-print-arguments     If the webserver should print arguments
+#
+webserver-print-arguments=<%= @webserver_print_arguments %>
+
+#################################
+# version-string   What should PowerDNS return for version
+#                  allowed methods are anonymous / powerdns / full / custom
+version-string=<%= @version_string %>
+
+include=<%= @pdns_d %>
