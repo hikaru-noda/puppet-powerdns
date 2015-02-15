@@ -12,7 +12,7 @@ class powerdns::params {
   $disable_tcp                        = false
   $distributor_threads                = '3'
   $guardian                           = true
-  $launch                             = []
+  $launch                             = ['bind:static']
   $local_address                      = '0.0.0.0'
   $local_ipv6                         = undef
   $local_port                         = '53'
