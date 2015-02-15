@@ -69,6 +69,15 @@ class powerdns (
 
   package { $package: ensure => $package_version, }
 
+  file { $config_dir:
+    ensure  => directory,
+    owner   => $setuid,
+    group   => $setgid,
+    mode    => '0700',
+    recurse => $pdns_d_purge,
+    purge   => $pdns_d_purge,
+  } ->
+
   file { $pdns_d:
     ensure  => directory,
     owner   => $setuid,
@@ -76,7 +85,7 @@ class powerdns (
     mode    => '0700',
     recurse => $pdns_d_purge,
     purge   => $pdns_d_purge,
-  }
+  } ->
 
   file { $config_file:
     ensure  => present,
