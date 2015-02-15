@@ -94,7 +94,7 @@ class powerdns (
     owner   => $setuid,
     group   => $setgid,
     mode    => '0600',
-    content => template('powerdns/pdns.conf.erb'),
+    content => template("${module_name}/pdns.conf.erb"),
   }
 
   service { $service:
