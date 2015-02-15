@@ -31,6 +31,7 @@ class powerdns::params {
   $max_queue_length                   = '5000'
   $max_tcp_connections                = '10'
   $module_dir                         = '/usr/lib64/pdns'
+  $named_conf			      = "${config_dir}/named.conf"
   $negquery_cache_ttl                 = '60'
   $out_of_zone_additional_processing  = false
   $query_cache_ttl                    = '20'
@@ -61,4 +62,5 @@ class powerdns::params {
   $version_string                     = 'powerdns'
   $pdns_d                             = "${config_dir}/pdns.d"
   $pdns_d_purge                       = false
+  $zone_dir			      = "${config_dir}/zones"
 }

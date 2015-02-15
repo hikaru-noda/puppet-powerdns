@@ -31,6 +31,7 @@ class powerdns (
   $max_queue_length                   = $::powerdns::params::max_queue_length,
   $max_tcp_connections                = $::powerdns::params::max_tcp_connections,
   $module_dir                         = $::powerdns::params::module_dir,
+  $named_conf			      = $::powerdns::params::named_conf,
   $negquery_cache_ttl                 = $::powerdns::params::negquery_cache_ttl,
   $out_of_zone_additional_processing  = $::powerdns::params::out_of_zone_additional_processing,
   $query_cache_ttl                    = $::powerdns::params::query_cache_ttl,
@@ -61,6 +62,7 @@ class powerdns (
   $version_string                     = $::powerdns::params::version_string,
   $pdns_d                             = $::powerdns::params::pdns_d,
   $pdns_d_purge                       = $::powerdns::params::pdns_d_purge,
+  $zone_dir			      = $::powerdns::params::zone_dir
 ) inherits powerdns::params {
 
   validate_array($allow_axfr_ips)
