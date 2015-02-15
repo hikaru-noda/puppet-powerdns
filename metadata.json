@@ -1,0 +1,32 @@
+{
+  "name": "powerdns",
+  "version": "0.0.1",
+  "source": "https://gitlab.testlab.warface.com/puppetforge/powerdns.git",
+  "author: ["Brad Ison", "Evgeniy Evtushenko"],
+  "license": "Apache License Version 2.0",
+  "summary": "PowerDNS module",
+  "description": "This module manages PowerDNS configuration",
+  "project_page": "https://gitlab.testlab.warface.com/puppetforge/powerdns,
+  "issues_url": "https://gitlab.testlab.warface.com/puppetforge/powerdns/issues",
+  "tags": ["powerdns", "pdns"],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": "3.x"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.4.0"
+    }
+  ]
+}
