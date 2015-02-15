@@ -1,7 +1,6 @@
 class powerdns::params {
   $allow_axfr_ips                     = []
   $allow_recursion                    = ['127.0.0.1']
-  $allow_recursion_override           = false
   $cache_ttl                          = '20'
   $chroot                             = undef
   $config_dir                         = '/etc/pdns'
@@ -14,7 +13,6 @@ class powerdns::params {
   $distributor_threads                = '3'
   $guardian                           = true
   $launch                             = []
-  $lazy_recursion                     = true
   $local_address                      = '0.0.0.0'
   $local_ipv6                         = undef
   $local_port                         = '53'
@@ -43,7 +41,6 @@ class powerdns::params {
   $service_enable                     = true
   $setgid                             = 'pdns'
   $setuid                             = 'pdns'
-  $skip_cname                         = false
   $slave                              = false
   $slave_cycle_interval               = '60'
   $soa_minimum_ttl                    = '3600'
@@ -52,8 +49,6 @@ class powerdns::params {
   $soa_expire_default                 = '604800'
   $soa_serial_offset                  = '0'
   $socket_dir                         = '/var/run'
-  $strict_rfc_axfrs                   = false
-  $use_logfile                        = true
   $webserver                          = false
   $webserver_address                  = '127.0.0.1'
   $webserver_password                 = undef

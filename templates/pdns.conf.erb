@@ -13,12 +13,6 @@ allow-axfr-ips=<%= @allow_axfr_ips.join(',') %>
 allow-recursion=<%= @allow_recursion.join(',') %>
 
 #################################
-# allow-recursion-override   Local data even about hosts that don't exist will
-#                            override the internet. (on/off)
-#
-allow-recursion-override=<%= @allow_recursion_override %>
-
-#################################
 # cache-ttl     Seconds to store packets in the PacketCache
 #
 cache-ttl=<%= @cache_ttl %>
@@ -83,11 +77,6 @@ guardian=<%= @guardian %>
 # launch        Which backends to launch and order to query them in
 #
 launch=<%= @launch.join(',') %>
-
-#################################
-# lazy-recursion        Only recurse if question cannot be answered locally
-#
-lazy-recursion=<%= @lazy_recursion %>
 
 #################################
 # local-address Local IP address to which we bind
@@ -220,11 +209,6 @@ setgid=<%= @setgid %>
 setuid=<%= @setuid %>
 
 #################################
-# skip-cname    Do not perform CNAME indirection for each query
-#
-skip-cname=<%= @skip_cname %>
-
-#################################
 # slave Act as a slave
 #
 slave=<%= @slave %>
@@ -263,16 +247,6 @@ soa-serial-offset=<%= @soa_serial_offset %>
 # socket-dir    Where the controlsocket will live
 #
 socket-dir=<%= @socket_dir %>
-
-#################################
-# strict-rfc-axfrs      Perform strictly rfc compliant axfrs (very slow)
-#
-strict-rfc-axfrs=<%= @strict_rfc_axfrs %>
-
-#################################
-# use-logfile   Use a log file
-#
-use-logfile=<%= @use_logfile %>
 
 #################################
 # webserver     Start a webserver for monitoring
