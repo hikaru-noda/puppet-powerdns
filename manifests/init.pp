@@ -1,15 +1,11 @@
 class powerdns (
-  $package                            = $::powerdns::params::package,
-  $package_version                    = $::powerdns::params::package_version,
-  $service                            = $::powerdns::params::service,
-  $service_enable                     = $::powerdns::params::service_enable,
-  $config_file                        = $::powerdns::params::config_file,
   $allow_axfr_ips                     = $::powerdns::params::allow_axfr_ips,
   $allow_recursion                    = $::powerdns::params::allow_recursion,
   $allow_recursion_override           = $::powerdns::params::allow_recursion_override,
   $cache_ttl                          = $::powerdns::params::cache_ttl,
   $chroot                             = $::powerdns::params::chroot,
   $config_dir                         = $::powerdns::params::config_dir,
+  $config_file                        = $::powerdns::params::config_file,
   $config_name                        = $::powerdns::params::config_name,
   $daemon                             = $::powerdns::params::daemon,
   $default_soa_name                   = $::powerdns::params::default_soa_name,
@@ -34,6 +30,8 @@ class powerdns (
   $named_conf			      = $::powerdns::params::named_conf,
   $negquery_cache_ttl                 = $::powerdns::params::negquery_cache_ttl,
   $out_of_zone_additional_processing  = $::powerdns::params::out_of_zone_additional_processing,
+  $package                            = $::powerdns::params::package,
+  $package_version                    = $::powerdns::params::package_version,
   $query_cache_ttl                    = $::powerdns::params::query_cache_ttl,
   $query_logging                      = $::powerdns::params::query_logging,
   $queue_limit                        = $::powerdns::params::queue_limit,
@@ -41,6 +39,8 @@ class powerdns (
   $receiver_threads                   = $::powerdns::params::receiver_threads,
   $recursive_cache_ttl                = $::powerdns::params::recursive_cache_ttl,
   $recursor                           = $::powerdns::params::recursor,
+  $service                            = $::powerdns::params::service,
+  $service_enable                     = $::powerdns::params::service_enable,
   $setgid                             = $::powerdns::params::setgid,
   $setuid                             = $::powerdns::params::setuid,
   $skip_cname                         = $::powerdns::params::skip_cname,
@@ -65,47 +65,47 @@ class powerdns (
   $zone_dir			      = $::powerdns::params::zone_dir
 ) inherits powerdns::params {
 
-  validate_array($allow_axfr_ips)
-  validate_array($allow_recursion)
-  validate_re($version_string, '^(anonymous|powerdns|full|custom)$')
+  validate_array($::powerdns::allow_axfr_ips)
+  validate_array($::powerdns::allow_recursion)
+  validate_re($::powerdns::version_string, '^(anonymous|powerdns|full|custom)$')
 
-  package { $package: ensure => $package_version, }
+  package { $::powerdns::package: ensure => $::powerdns::package_version, }
 
-  file { $config_dir:
+  file { $::powerdns::config_dir:
     ensure  => directory,
-    owner   => $setuid,
-    group   => $setgid,
+    owner   => $::powerdns::setuid,
+    group   => $::powerdns::setgid,
     mode    => '0700',
-    recurse => $pdns_d_purge,
-    purge   => $pdns_d_purge,
+    recurse => $::powerdns::pdns_d_purge,
+    purge   => $::powerdns::pdns_d_purge,
   } ->
 
-  file { $pdns_d:
+  file { $::powerdns::pdns_d:
     ensure  => directory,
-    owner   => $setuid,
-    group   => $setgid,
+    owner   => $::powerdns::setuid,
+    group   => $::powerdns::setgid,
     mode    => '0700',
-    recurse => $pdns_d_purge,
-    purge   => $pdns_d_purge,
+    recurse => $::powerdns::pdns_d_purge,
+    purge   => $::powerdns::pdns_d_purge,
   } ->
 
-  file { $config_file:
+  file { $::powerdns::config_file:
     ensure  => present,
-    owner   => $setuid,
-    group   => $setgid,
+    owner   => $::powerdns::setuid,
+    group   => $::powerdns::setgid,
     mode    => '0600',
     content => template("${module_name}/pdns.conf.erb"),
   }
 
-  service { $service:
-    ensure     => $service_enable,
-    enable     => $service_enable,
+  service { $::powerdns::service:
+    ensure     => $::powerdns::service_enable,
+    enable     => $::powerdns::service_enable,
     hasstatus  => true,
     hasrestart => true,
-    subscribe  => File[$config_file],
+    subscribe  => File[$::powerdns::config_file],
   }
 
-  Package[$package] ->
-  File[$config_file] ->
-  Service[$service]
+  Package[$::powerdns::package] ->
+  File[$::powerdns::config_file] ->
+  Service[$::powerdns::service]
 }
