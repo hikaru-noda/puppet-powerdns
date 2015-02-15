@@ -1,15 +1,11 @@
 class powerdns::params {
-  $package                            = 'pdns'
-  $package_version                    = 'installed'
-  $service                            = 'pdns'
-  $service_enable                     = true
-  $config_file                        = "${config_dir}/pdns.conf"
   $allow_axfr_ips                     = []
   $allow_recursion                    = ['127.0.0.1']
   $allow_recursion_override           = false
   $cache_ttl                          = '20'
   $chroot                             = undef
   $config_dir                         = '/etc/pdns'
+  $config_file                        = "${config_dir}/pdns.conf"
   $config_name                        = undef
   $daemon                             = true
   $default_soa_name                   = 'a.misconfigured.powerdns.server'
@@ -34,6 +30,8 @@ class powerdns::params {
   $named_conf			      = "${config_dir}/named.conf"
   $negquery_cache_ttl                 = '60'
   $out_of_zone_additional_processing  = false
+  $package                            = 'pdns'
+  $package_version                    = 'installed'
   $query_cache_ttl                    = '20'
   $query_logging                      = false
   $queue_limit                        = '1500'
@@ -41,6 +39,8 @@ class powerdns::params {
   $receiver_threads                   = '1'
   $recursive_cache_ttl                = '10'
   $recursor                           = undef
+  $service                            = 'pdns'
+  $service_enable                     = true
   $setgid                             = 'pdns'
   $setuid                             = 'pdns'
   $skip_cname                         = false
