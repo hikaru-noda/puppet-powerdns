@@ -55,8 +55,6 @@ class powerdns (
   $webserver_port                     = $::powerdns::params::webserver_port,
   $webserver_print_arguments          = $::powerdns::params::webserver_print_arguments,
   $version_string                     = $::powerdns::params::version_string,
-  $pdns_d                             = $::powerdns::params::pdns_d,
-  $pdns_d_purge                       = $::powerdns::params::pdns_d_purge,
   $zone_dir			      = $::powerdns::params::zone_dir
 ) inherits powerdns::params {
 
@@ -67,15 +65,6 @@ class powerdns (
   package { $::powerdns::package: ensure => $::powerdns::package_version, }
 
   file { $::powerdns::config_dir:
-    ensure  => directory,
-    owner   => $::powerdns::setuid,
-    group   => $::powerdns::setgid,
-    mode    => '0700',
-    recurse => $::powerdns::pdns_d_purge,
-    purge   => $::powerdns::pdns_d_purge,
-  } ->
-
-  file { $::powerdns::pdns_d:
     ensure  => directory,
     owner   => $::powerdns::setuid,
     group   => $::powerdns::setgid,

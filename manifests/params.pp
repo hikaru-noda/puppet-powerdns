@@ -55,7 +55,5 @@ class powerdns::params {
   $webserver_port                     = '8081'
   $webserver_print_arguments          = false
   $version_string                     = 'powerdns'
-  $pdns_d                             = "${config_dir}/pdns.d"
-  $pdns_d_purge                       = false
   $zone_dir			      = "${config_dir}/zones"
 }
