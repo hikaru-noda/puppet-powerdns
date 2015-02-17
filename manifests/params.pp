@@ -13,7 +13,7 @@ class powerdns::params {
   $distributor_threads                = '3'
   $guardian                           = true
   $launch                             = ['bind:static']
-  $local_address                      = '0.0.0.0'
+  $local_address                      = $::ipaddress
   $local_ipv6                         = undef
   $local_port                         = '53'
   $log_dns_details                    = true
@@ -37,6 +37,9 @@ class powerdns::params {
   $receiver_threads                   = '1'
   $recursive_cache_ttl                = '10'
   $recursor                           = undef
+  $recursor_config_file		      = "${config_dir}/recursor.conf"
+  $recursor_package		      =	'pdns-recursor'
+  $recursor_service		      = 'pdns-recursor'
   $service                            = 'pdns'
   $service_enable                     = true
   $setgid                             = 'pdns'

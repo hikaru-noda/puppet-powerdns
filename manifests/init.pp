@@ -37,6 +37,9 @@ class powerdns (
   $receiver_threads                   = $::powerdns::params::receiver_threads,
   $recursive_cache_ttl                = $::powerdns::params::recursive_cache_ttl,
   $recursor                           = $::powerdns::params::recursor,
+  $recursor_config_file               = $::powerdns::params::recursor_config_file,
+  $recursor_package                   = $::powerdns::params::recursor_package,
+  $recursor_service                   = $::powerdns::params::recursor_service,
   $service                            = $::powerdns::params::service,
   $service_enable                     = $::powerdns::params::service_enable,
   $setgid                             = $::powerdns::params::setgid,
@@ -87,6 +90,10 @@ class powerdns (
     hasstatus  => true,
     hasrestart => true,
     subscribe  => File[$::powerdns::config_file],
+  }
+
+  if $recursor {
+    include powerdns::recursor
   }
 
   Package[$::powerdns::package] ->
