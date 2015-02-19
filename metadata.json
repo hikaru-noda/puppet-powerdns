@@ -1,6 +1,6 @@
 {
   "name": "powerdns",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "source": "https://gitlab.testlab.warface.com/puppetforge/powerdns.git",
   "author: ["Brad Ison", "Evgeniy Evtushenko"],
   "license": "Apache License Version 2.0",
