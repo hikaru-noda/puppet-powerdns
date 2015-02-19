@@ -16,11 +16,10 @@ class powerdns::params {
   $local_address                      = $::ipaddress
   $local_ipv6                         = undef
   $local_port                         = '53'
-  $log_dns_details                    = true
-  $log_failed_updates                 = true
-  $logfile                            = undef
+  $log_dns_details                    = false
+  $log_failed_updates                 = false
   $logging_facility                   = undef
-  $log_level                          = '4'
+  $log_level                          = '5'
   $master                             = false
   $max_queue_length                   = '5000'
   $max_tcp_connections                = '10'

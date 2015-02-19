@@ -18,7 +18,6 @@ class powerdns (
   $local_port                         = $::powerdns::params::local_port,
   $log_dns_details                    = $::powerdns::params::log_dns_details,
   $log_failed_updates                 = $::powerdns::params::log_failed_updates,
-  $logfile                            = $::powerdns::params::logfile,
   $logging_facility                   = $::powerdns::params::logging_facility,
   $log_level                          = $::powerdns::params::log_level,
   $master                             = $::powerdns::params::master,
